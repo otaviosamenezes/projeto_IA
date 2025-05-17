@@ -35,6 +35,10 @@
 </ul>
 <h1>Como usar o Simplificador:</h1>
 <p>Basta iniciar sua mensagem com <code>Explicar:</code> seguido do conceito que deseja entender.</p>
+![Image](https://github.com/user-attachments/assets/d8853537-65cd-46eb-8e9e-4f6cdf9750de)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/d8853537-65cd-46eb-8e9e-4f6cdf9750de" width="700px" />
+</div>
 
 <h1>Tecnologia Utilizada</h1>
 <p>O coração do <strong>O Amigo Curioso</strong> é a integração com a <strong>API Key do Google AI Studio</strong>. Esta API permite o acesso a modelos de linguagem avançados capazes de realizar as tarefas de resumo e simplificação com alta precisão.</p>
