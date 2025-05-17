@@ -4,6 +4,10 @@
 <h1>Introdução</h1>
 <p>Em um mundo onde o volume de informações cresce exponencialmente, torna-se cada vez mais desafiador absorver e compreender conteúdos extensos ou complexos de forma rápida e eficiente. O projeto <strong>O Amigo Curioso</strong> surge como uma solução inovadora para este desafio, atuando como um chatbot inteligente projetado para simplificar o acesso ao conhecimento e otimizar o tempo dos usuários.</p>
 <p>Utilizando o poder da inteligência artificial generativa do Google, através da sua API Key, este assistente pessoal é capaz de processar linguagem natural e entregar respostas concisas e claras, tornando a informação mais acessível para todos.</p>
+![Image](https://github.com/user-attachments/assets/c7f7417b-4e78-433c-ab83-633f4909c6cc)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/c7f7417b-4e78-433c-ab83-633f4909c6cc" width="700px" />
+</div>
 
 <h1>Funcionalidades Chave e Utilidade no Dia a Dia</h1>
 <p><strong>O Amigo Curioso</strong> foi desenvolvido com foco em duas funcionalidades principais, pensadas para trazer utilidade real e imediata para o cotidiano dos usuários:</p>
