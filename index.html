@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Amigo Curioso</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>O Amigo Curioso</h1>
+        <p>Seu assistente para resumir textos e simplificar conceitos.</p>
+
+        <div class="chat-box">
+            <div id="chat-output" class="chat-output">
+                <div class="message bot-message">Olá! Cole um texto para resumir ou pergunte algo para simplificar um conceito.</div>
+            </div>
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="Cole seu texto ou digite sua pergunta (ex: 'Resumir: ...' ou 'Explicar: ...')" rows="4"></textarea>
+                <button id="send-button">Enviar</button>
+            </div>
+        </div>
+        <p class="instructions">
+            Instruções:
+            <br>Para resumir um texto, comece sua mensagem com "Resumir: ".
+            <br>Para simplificar um conceito, comece sua mensagem com "Explicar: ".
+            <br>Exemplo: "Explicar: O que é fotossíntese?" ou "Resumir: [Cole aqui seu texto longo]"
+        </p>
+    </div>
+
+    <script src="js/px.js"></script>
+</body>
+</html>

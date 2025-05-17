@@ -1,0 +1,353 @@
+/* style.css - Versão com Input Refinada */
+
+/* Paleta de Cores Sugerida (Mais Vivas):
+   Primária (Azul/Roxo): #7f00ff, #e100ff (para gradientes de fundo)
+   Secundária (Ciano/Verde): #00dbde, #fc00ff (para botões, destaques)
+   Neutros: #ffffff (fundo container), #f8f9fa (fundo suave), #dee2e6 (bordas), #212529 (texto principal)
+   Alerta/Instrução: #ffc107 (amarelo), #dc3545 (vermelho)
+*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Gradiente de fundo mais vibrante */
+    background: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Usamos min-height para garantir que o body ocupe a altura total da viewport */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #212529; /* Cor de texto principal mais escura */
+    line-height: 1.6;
+    overflow: hidden; /* Esconde qualquer estrela que saia da tela */
+    position: relative; /* Necessário para posicionar as estrelas */
+}
+
+/* Efeito de fundo com estrelas */
+/* Cria múltiplos fundos para simular estrelas em diferentes "camadas" */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Garante que as estrelas fiquem atrás do conteúdo */
+    animation: twinkling 20s infinite; /* Animação de "piscar" */
+}
+
+/* Configuração das estrelas (usando background-image com radial-gradient) */
+body::before {
+    /* Estrelas menores e mais numerosas */
+    background-image: radial-gradient(circle, white 0.5px, transparent 1px);
+    background-size: 50px 50px; /* Espaçamento entre as estrelas */
+}
+
+body::after {
+    /* Estrelas maiores e menos numerosas */
+    background-image: radial-gradient(circle, white 1px, transparent 1.5px);
+    background-size: 80px 80px; /* Espaçamento maior */
+    animation-delay: 10s; /* Começa a animação depois da primeira camada */
+}
+
+/* Animação para as estrelas */
+@keyframes twinkling {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    /* Sombra mais elegante e difusa */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
+    width: 100%;
+    max-width: 850px; /* Aumenta um pouco mais a largura */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Garante que o container fique acima das estrelas */
+    display: flex; /* Transforma o container em flex container */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    /* Garante que o container não seja menor que seu conteúdo */
+    min-height: 600px; /* Altura mínima para o container */
+}
+
+/* Remove os pseudo-elementos de fundo anteriores */
+.container::before,
+.container::after {
+    display: none;
+}
+
+
+h1 {
+    color: #4a0072; /* Cor de título mais escura e roxa */
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 2.4em; /* Aumenta tamanho do título */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Sombra sutil no texto */
+}
+
+p {
+    color: #343a40; /* Cor de parágrafo mais escura */
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.chat-box {
+    border: 1px solid #ced4da; /* Borda suave */
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column; /* Organiza chat-output e chat-input em coluna */
+    background-color: #f8f9fa; /* Fundo suave para a caixa de chat */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Permite que a chat-box cresça para preencher o espaço disponível no container */
+    flex-grow: 1;
+    /* Define uma altura mínima para a chat-box */
+    min-height: 300px; /* Ajuste conforme necessário */
+}
+
+.chat-output {
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #e9ecef; /* Fundo levemente acinzentado para mensagens */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Permite que a área de mensagens cresça e ocupe o espaço restante */
+    flex-grow: 1;
+    /* Garante que a área de mensagens possa encolher se necessário */
+    flex-shrink: 1;
+    /* Define uma altura base (pode ser 0 para flex-grow funcionar plenamente) */
+    flex-basis: 0;
+}
+
+/* Estilo da barra de scroll */
+.chat-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-output::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.chat-output::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 10px;
+}
+
+.chat-output::-webkit-scrollbar-thumb:hover {
+    background: #6c757d;
+}
+
+
+.message {
+    padding: 15px 20px;
+    border-radius: 22px;
+    max-width: 85%;
+    word-wrap: break-word;
+    position: relative;
+    font-size: 1em;
+    line-height: 1.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil na bolha */
+}
+
+.bot-message {
+    /* Gradiente mais vibrante para mensagens do bot */
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    color: white;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+/* Rabicho do bot */
+.bot-message::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+    border-bottom-left-radius: 5px;
+}
+
+
+/* Mensagens do usuário (se ativadas) */
+.user-message {
+    /* Gradiente verde/azul mais vibrante */
+    background: linear-gradient(45deg, #a8ff78, #78ffd6);
+    color: #333;
+    align-self: flex-end;
+    margin-left: auto;
+}
+/* Rabicho do usuário */
+.user-message::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -7px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(45deg, #a8ff78, #78ffd6);
+    clip-path: polygon(0% 100%, 100% 100%, 0% 0%);
+    border-bottom-right-radius: 5px;
+}
+
+
+.chat-input {
+    display: flex;
+    padding: 15px 20px; /* Ajusta o padding para ser um pouco menor na vertical */
+    background-color: #f1f3f5; /* Fundo levemente mais claro para a área de input */
+    border-top: 1px solid #dee2e6;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-bottom-left-radius: 15px; /* Cantos arredondados inferiores para combinar com a chat-box */
+    border-bottom-right-radius: 15px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interna sutil */
+}
+
+textarea {
+    flex-grow: 1;
+    padding: 10px 15px; /* Reduz o padding interno do textarea */
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Cantos um pouco menos arredondados para o textarea */
+    font-size: 1em;
+    resize: none;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    color: #212529;
+    /* Define uma altura mínima para o textarea */
+    min-height: 40px; /* Ajuste este valor para controlar a altura inicial */
+    /* Remove a altura fixa se houver */
+    height: auto;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+
+button {
+    padding: 12px 25px; /* Ajusta o padding do botão para combinar com o textarea */
+    /* Mantém o gradiente de botão vibrante */
+    background: linear-gradient(45deg, #007bff, #00c6fb);
+    color: white;
+    border: none;
+    border-radius: 8px; /* Cantos arredondados para o botão */
+    cursor: pointer;
+    font-size: 1em; /* Ajusta tamanho da fonte do botão */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+    /* Garante que o botão não encolha */
+    flex-shrink: 0;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #00a0c4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 123, 255, 0.5);
+}
+
+button:active {
+    background: linear-gradient(45deg, #004085, #007bff);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+
+.instructions {
+    font-size: 0.95em;
+    color: #495057;
+    text-align: left;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 10px;
+    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .chat-output {
+        flex-basis: 350px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .message {
+        padding: 12px 18px;
+        border-radius: 18px;
+        max-width: 90%;
+    }
+
+     .bot-message::before {
+        left: -5px;
+        bottom: 5px;
+        clip-path: polygon(0% 100%, 100% 100%, 100% 20%);
+     }
+
+     .user-message::before {
+        right: -5px;
+        bottom: 5px;
+        clip-path: polygon(0% 100%, 100% 100%, 0% 20%);
+     }
+
+
+    .chat-input {
+        flex-direction: column;
+        padding: 15px; /* Ajusta padding em telas menores */
+        gap: 10px; /* Ajusta espaçamento */
+    }
+
+    textarea {
+        margin-right: 0;
+        margin-bottom: 0;
+        padding: 10px 15px; /* Ajusta padding do textarea em telas menores */
+        font-size: 0.95em;
+        min-height: 35px; /* Ajusta altura mínima em telas menores */
+    }
+
+    button {
+        padding: 10px 20px; /* Ajusta padding do botão em telas menores */
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .instructions {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
