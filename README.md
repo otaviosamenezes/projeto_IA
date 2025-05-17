@@ -21,6 +21,10 @@
 </ul>
 <h1>Como usar o Resumo Rápido:</h1>
 <p>Basta iniciar sua mensagem com <code>Resumir:</code> seguido do texto que deseja resumir.</p>
+![Image](https://github.com/user-attachments/assets/ac26733e-4638-41cd-9fb8-5a067470a58a)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/ac26733e-4638-41cd-9fb8-5a067470a58a" width="700px" />
+</div>
 
 <h1>2. Simplificador de Conceitos Complexos</h1>
 <p>Com esta funcionalidade, o usuário pode perguntar sobre qualquer conceito, termo ou tópico que considere difícil de entender. O chatbot irá explicar o assunto de forma clara, utilizando linguagem simples, analogias e exemplos, se necessário. É ideal para:</p>
